@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[90vh] md:h-screen w-full grid grid-cols-1 md:grid-cols-2 bg-brand-bg border-b border-black/5 pt-20">
       {/* Content */}
@@ -12,7 +15,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-[11px] uppercase tracking-[3px] text-brand-clay font-bold mb-6"
         >
-          Modern Oriental Ceramic
+          {t.hero.subtitle}
         </motion.span>
         
         <motion.h1 
@@ -22,8 +25,8 @@ export default function Hero() {
           transition={{ delay: 0.2, duration: 1 }}
           className="text-[48px] md:text-[72px] font-serif leading-[1.1] mb-8"
         >
-          静 · 物<br />
-          <span className="italic">瓷以载道</span>
+          {t.hero.title}<br />
+          <span className="italic">{t.hero.titleItalic}</span>
         </motion.h1>
 
         <motion.p 
@@ -33,7 +36,7 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 1 }}
           className="text-lg leading-[1.6] text-brand-text-light max-w-[400px] tracking-wide"
         >
-          溯源东方生活美学，将传统手工技艺与现代极简设计融合，打造具有灵魂的日用器物。
+          {t.hero.desc}
         </motion.p>
 
         <motion.div
@@ -49,7 +52,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 rounded-full bg-brand-clay" />
             <span className="text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent group-hover:border-brand-clay transition-all py-1">
-              探索系列
+              {t.hero.explore}
             </span>
           </a>
         </motion.div>
@@ -70,7 +73,7 @@ export default function Hero() {
 
         {/* Vertical Text */}
         <div className="absolute right-5 top-1/2 -translate-y-1/2 vertical-text text-[10px] tracking-[4px] opacity-20 uppercase">
-          Handcrafted Aesthetics
+          {t.hero.verticalText}
         </div>
       </div>
     </section>

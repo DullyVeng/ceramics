@@ -1,33 +1,41 @@
 import { motion } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
 
-const steps = [
-  { 
-    id: '01', 
-    title: '选土研磨', 
-    desc: '甄选优质瓷泥，剔除杂质，历经千次捶打研磨，赋予陶土细腻而坚固的肌理。',
-    img: 'https://images.unsplash.com/photo-1590422443831-297e596bb056?q=80&w=2070&auto=format&fit=crop'
-  },
-  { 
-    id: '02', 
-    title: '手工拉坯', 
-    desc: '指尖与转盘的律动，将内心对形状的理解注入泥土。每一个弧度都不可复制。',
-    img: 'https://images.unsplash.com/photo-1541571477755-e7019672f094?q=80&w=2037&auto=format&fit=crop'
-  },
-  { 
-    id: '03', 
-    title: '素烧施釉', 
-    desc: '初入火窑固形，其后手工施釉。天然草木灰与矿物釉，待火的洗礼。',
-    img: 'https://images.unsplash.com/photo-1589182397057-b82b719d300b?q=80&w=1974&auto=format&fit=crop'
-  },
-  { 
-    id: '04', 
-    title: '浴火重生', 
-    desc: '1300度高温，柴窑古法烧制。烟火与釉色的偶发碰撞，成就独一无二的灵魂。',
-    img: 'https://images.unsplash.com/photo-1565193998877-507945d836fd?q=80&w=2070&auto=format&fit=crop'
-  },
-];
+import imgCraft01 from '../assets/images/craft_01.png';
+import imgCraft02 from '../assets/images/craft_02.png';
+import imgCraft03 from '../assets/images/craft_03.png';
+import imgCraft04 from '../assets/images/craft_04.png';
 
 export default function Craft() {
+  const { t } = useLanguage();
+
+  const steps = [
+    { 
+      id: t.craft.steps[0].id, 
+      title: t.craft.steps[0].title, 
+      desc: t.craft.steps[0].desc,
+      img: imgCraft01
+    },
+    { 
+      id: t.craft.steps[1].id, 
+      title: t.craft.steps[1].title, 
+      desc: t.craft.steps[1].desc,
+      img: imgCraft02
+    },
+    { 
+      id: t.craft.steps[2].id, 
+      title: t.craft.steps[2].title, 
+      desc: t.craft.steps[2].desc,
+      img: imgCraft03
+    },
+    { 
+      id: t.craft.steps[3].id, 
+      title: t.craft.steps[3].title, 
+      desc: t.craft.steps[3].desc,
+      img: imgCraft04
+    },
+  ];
+
   return (
     <section id="craft" className="py-24 md:py-40 bg-brand-ink text-brand-bg px-6">
       <div className="max-w-7xl mx-auto">
@@ -38,7 +46,7 @@ export default function Craft() {
             viewport={{ once: true }}
             className="text-brand-accent text-sm uppercase tracking-[0.4em] mb-4 block"
           >
-            The Process
+            {t.craft.process}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -46,8 +54,8 @@ export default function Craft() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-serif max-w-2xl leading-tight"
           >
-            以时间萃取匠心，<br />
-            <span className="italic">成就温润如玉之质。</span>
+            {t.craft.title1}<br />
+            <span className="italic">{t.craft.title2}</span>
           </motion.h2>
         </div>
 
